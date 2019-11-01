@@ -23,3 +23,11 @@ jobs:
           name: run tests
           command: |
             bundle exec rspec --format progress
+
+      - run:
+          name: upload coverage
+          command: |
+            ruby -e "$(curl -s https://undercover-ci.com/uploader.rb)" -- \
+              --repo kruszczynski/australis \
+              --commit $CIRCLE_SHA1 \
+              --lcov coverage/lcov/lib-australis.rb.lcov
