@@ -1,5 +1,7 @@
 require 'simplecov'
-SimpleCov.start 'rails'
+require 'simplecov-lcov'
+SimpleCov.formatter = SimpleCov::Formatter::LcovFormatter
+SimpleCov.start
 
 require './lib/australis.rb'
 
